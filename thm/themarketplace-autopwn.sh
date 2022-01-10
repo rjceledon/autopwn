@@ -17,7 +17,7 @@ whatweb --color=never http://$ip
 username=$(echo $RANDOM | md5sum | head -c 8; echo)
 password=$(echo $RANDOM | md5sum | head -c 8; echo)
 echo -e "\n[*] Creando usuario '$username' con clave '$password' en http://$ip/signup"
-if [ `curl -s -d "username=$username&password=$password" http://$ip/signup | grep successfully &>/dev/null; echo $?` == 0 ]; then
+if [ `curl -s -d "username=$username&password=$password" http://$ip/signup | grep -q successfully; echo $?` == 0 ]; then
     echo -e "[+] Creacion de usuario exitosa!\n"
 else
     echo -e "[!] ERROR: Saliendo..."
