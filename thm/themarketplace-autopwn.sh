@@ -7,8 +7,6 @@ echo -e "                             __   \n\
 /___/\___/\__, /\___/\___/_/\___/ \n\
          /____/                   "
 
-echo -e $banner
-
 ip=$1
 ip_local=$(ip address show dev tun0 | grep inet | head -n 1 | awk '{print $2}' | awk '{print $1}' FS='/')
 echo -e "[*] Enumerando web http://$ip"
