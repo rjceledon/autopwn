@@ -3,7 +3,7 @@
 echo -e "                             __   \n\
  ____  ___  __  __________  / /__ \n\
 /_  / / _ \/ / / / ___/ _ \/ / _ \  Autopwn para The Marketplace - TryHackMe\n\
- / /_/  __/ /_/ / /__/  __/ /  __/  Hecho por zeycele - https://github.com/rjceledon \n\
+ / /_/  __/ /_/ / /__/  __/ /  __/  Hecho por zeycele - https://github.com/rjceledon\n\
 /___/\___/\__, /\___/\___/_/\___/ \n\
          /____/                   "
 
